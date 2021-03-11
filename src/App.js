@@ -10,8 +10,8 @@ import './App.css';
 function App() {
   return (
     <Router>
+      <MenuHeader />
       <Container>
-        <MenuHeader />
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/login" component={Login}></Route>
         <Route exact path="/register" component={Register}></Route>

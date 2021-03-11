@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Container, Menu, Sticky } from 'semantic-ui-react'
 import { Link, useLocation } from 'react-router-dom'
 
 const MenuHeader = () => {
@@ -8,33 +8,35 @@ const MenuHeader = () => {
     let [activeItem, setActiveItem] = useState(location);
     const handleItemClick = (e, { name }) => setActiveItem(name);
     return (
-        <div>
-            <Menu color='brown' size="massive" pointing secondary>
-                <Menu.Item
-                    name='home'
-                    active={activeItem === 'home'}
-                    onClick={handleItemClick}
-                    as={Link}
-                    to="/"
-                />
-                <Menu.Menu position='right'>
+        <Sticky>
+            <Menu style={{ backgroundColor: "white" }} color='brown' size="massive" pointing secondary>
+                <Container>
                     <Menu.Item
-                        name='login'
-                        active={activeItem === 'login'}
+                        name='home'
+                        active={activeItem === 'home'}
                         onClick={handleItemClick}
                         as={Link}
-                        to="/login"
+                        to="/"
                     />
-                    <Menu.Item
-                        name='register'
-                        active={activeItem === 'register'}
-                        onClick={handleItemClick}
-                        as={Link}
-                        to="/register"
-                    />
-                </Menu.Menu>
+                    <Menu.Menu position='right'>
+                        <Menu.Item
+                            name='login'
+                            active={activeItem === 'login'}
+                            onClick={handleItemClick}
+                            as={Link}
+                            to="/login"
+                        />
+                        <Menu.Item
+                            name='register'
+                            active={activeItem === 'register'}
+                            onClick={handleItemClick}
+                            as={Link}
+                            to="/register"
+                        />
+                    </Menu.Menu>
+                </Container>
             </Menu>
-        </div>
+        </Sticky>
     )
 }
 
